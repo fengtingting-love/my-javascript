@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>点赞与踩</title>
+</head>
+<body>
+   点赞：<button id="like">0</button>
+   踩：<button id="dislike">0</button>
+   <script>
+     //通过DOM操作，获取当前值
+     var oInput1=document.getElementById("like");
+     var oInput2=document.getElementById("dislike");
+     //绑定点击事件
+     function like(){
+       var i=0;
+       return function(){
+        this.innerHTML='+'+ ++i;
+       }
+     }
+     oInput1.onclick=like();
+     function dislike(){
+       var i=0;
+       return function(){
+        this.innerHTML= --i;
+         
+       }
+     }
+     oInput2.onclick=dislike();
+   </script>
+</body>
+</html>
