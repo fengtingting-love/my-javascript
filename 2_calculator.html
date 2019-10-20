@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算器</title>
+</head>
+
+<body>
+  <h1>计算器</h1>
+  <input type="text" id="val01" placeholder="请输入第一个数字">
+  <select id="symbol">
+    <option value="0">+</option>
+    <option value="1">-</option>
+    <option value="2">*</option>
+    <option value="3">/</option>
+  </select>
+  <input type="text" id="val02" placeholder="请输入第二个数字">
+  <input type="button" id="btn" value="计算">
+  <script type="text/javascript">
+    //window.onload时执行该函数
+    window.onload = function () {
+      //首先，利用JavaScript DOM获取两个输入框的值，以及进行什么样的操作
+      var oText1 = document.getElementById("val01");
+      var oText2 = document.getElementById("val02");
+      var oSymbol = document.getElementById("symbol");
+      //获取点击事件
+      var oBtn = document.getElementById("btn");
+      oBtn.onclick = function () {
+        //获得输入的值和符号，定义res变量用来保存最终结果
+        var num1 = oText1.value;
+        var num2 = oText2.value;
+        var sym1 = oSymbol.value;
+        var res;
+        //如果两个值中有一个值为空的话
+        if (num1 === '' || num2 === '') {
+          alert("值不能为空");
+          return;
+        }
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("请输入数字进行计算");
+          return;
+        }
+        //第一种：通过if语句，判断我们要进行的是哪种操作
+        // if(sym1==='0'){
+        //   res=parseInt(num1)+parseInt(num2);
+        // }else if(sym1==='1'){
+        //   res=parseInt(num1)-parseInt(num2);
+        // }
+        // else if(sym1==='2'){
+        //   res=parseInt(num1)*parseInt(num2);
+        // }else if(sym1==='3'){
+        //   res=parseInt(num1)/parseInt(num2);
+        // }
+        // alert(res);
+          //第二种：用switch来判断符号为什么并且进行相应的操作
+        switch (sym1) {
+          case '0':
+            res = parseInt(num1) + parseInt(num2);
+            break;
+          case '1':
+            res = parseInt(num1) - parseInt(num2);
+            break;
+          case '2':
+            res = parseInt(num1) * parseInt(num2);
+            break;
+          case '3':
+            res = parseInt(num1) / parseInt(num2);
+            break;
+        }
+        alert(res);
+      }
+    }
+  </script>
+</body>
+
+</html>
