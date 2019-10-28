@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计时器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .btn {
+      width: 120px;
+      height: 32px;
+    }
+
+    .content,#countBack {
+      width: 200px;
+      height: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="countBack">请规定剩余时间：</label><input id="countBack" type="text">
+  <button class="btn" onclick=addValue()>开始倒数</button>
+  <input class="content" type="text">
+
+  <script>
+    
+    var Avalue;
+    function addValue() {
+      var backNum=document.getElementById("countBack").value;
+      // if (Avalue == ) {
+        Avalue=backNum;
+        var timer = setInterval(() => {
+          document.getElementsByClassName("content")[0].value = "倒计时：" + Avalue + "秒";
+          Avalue--;
+          if (Avalue < 0) {
+            clearInterval(timer);
+            alert("时间到！");
+          }
+        }, 1000);
+      }
+    // }
+  </script>
+</body>
+
+</html>
