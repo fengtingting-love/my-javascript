@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- document的魔力，只要在文档加载后执行这个方法，之前的内容就都会被覆盖 -->
+  <h1>风来了</h1>
+  <p>春风轻轻的拂过我的脸，让我想起记忆中妈妈的模样</p>
+  <button onclick=changeContent()>诱惑</button>
+  <script>
+    function changeContent(){
+      document.write("无论之前是什么样子，冬天来了，一切就都消失不见了");
+    }
+  </script>
+</body>
+</html>
