@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    数据类型：
+      string，number，boolean，null，undefined
+      array，object
+    */
+    //1.可以在变量声明时注明它的类型
+    var a=new Number;
+    console.log(a,typeof a);
+    a="aaa";
+    console.log(a,typeof a);
+    //2.1声明数组
+    var cars=new Array();
+    cars[0]="BMW";
+    cars[1]="Benz";
+    cars[2]="Audi";
+    console.log(cars);
+    //2.2声明数组
+    var cars=["BMW","Benz","Audi"];
+    console.log(cars);
+    //2.3声明数组
+    var cars=new Array("BMW","Benz","Audi");
+    console.log(cars);
+    //3.1声明对象
+    var person={
+      name:'冯婷婷',
+      age:15,
+      hobby:"basketball"
+    };
+    //寻址方式：对象.属性
+    console.log("我叫"+person.name+","+"今年"+person.age+"岁,"+"我的爱好是"+person.hobby)
+    //4.数据类型
+    /*
+      undefined：使用var声明变量但未初始化(未赋值)
+      区分空对象指针与尚未定义的变量
+      对未初始化的变量以及未声明的变量使用typeof运算符均会返回undefined
+    */
+    var c;
+    console.log(typeof(c),typeof(b));
+    // undefined派生于null，因此==的会返回true
+    console.log(undefined==null,"undefined和null在两个等号情况下相等");
+    //空对象可以转换成true，空字符串转换成false
+    //创建空对象的方法,通过做Object.create（NULL），我们显式指定NULL作为它的原型。所以它绝对没有属性，甚至没有构造函数、toString、hasOwnProperty属性，所以如果需要的话，可以在数据结构中使用这些键，而不需要通过hasOwnProperty进行判断。
+    var nullobject={};
+    var nullobj=new Object();
+    var nullo=Object.create(null);
+    console.log(Boolean(nullobject),Boolean(nullobj),Boolean(nullo),"空对象可以转换成true");
+
+    //创建空字符串
+    var nullString='';
+    console.log(Boolean(nullString),"空字符串通过boolean可以转换成false");
+    console.log(Boolean(null),Boolean(undefined),Boolean(NaN),"null,undefined,NaN转换成false");
+
+    //字符串类型：
+    var str="我是一个字符串";
+    str='我是字符串3';
+    var num1=4;
+    console.log(typeof(num1.toString()),"数值类型转换成字符串类型");
+    var null1=null;
+    console.log(typeof(String(null1)),"null,undefined类型转换成字符串类型");
+    var com1="3";
+    var com2="7";
+    console.log(typeof(eval(com1,com2)));
+    /*
+      字符串类型的转化：
+      sth.toString(),sth可以为number，boolean，string，object类型
+      String(sth),sth可以为null，undefined类型
+      eval(sth1,sth2),sth可以为字符串类型，用eval方法后将其相加，得到数值类型结果
+    */ 
+
+    /*数值类型
+      1.Number.MIN_VALUE 最小值
+      2.Number.MAX_VALUE 最大值
+      3.Number.POSITIVE_INFINITY 正无穷
+      4.Number.NEGATIVE_INFINITY 负无穷
+      5.判断是否超出范围的方法： isFinite()
+      6.NaN 非数值，任何涉及NaN的操作都将返回NaN，NaN和任何数值都不相等包括其本身，用isNaN()判断一个数是不是NaN状态
+    */
+    var numm1=3,numm2=-Infinity;
+    console.log(Number.MIN_VALUE,Number.MAX_VALUE,"输出最大值最小值");
+    console.log(Number.POSITIVE_INFINITY,Number.NEGATIVE_INFINITY,"输出正无穷和负无穷");
+    console.log(isFinite(numm1),isFinite(numm2),"输出变量在合法范围");
+
+    /*
+      转换成数值类型的方法：
+      1.Number(sth),sth可以为Boolean类型：true->1,false->0; null：->0;undefined->NaN;也可以是string类型 '22'->22
+      2.字符串转换成Number类型注意：
+        只包含数字的，会转换成十进制数，前面的0会直接省略
+        包含有效浮点格式的，会转换成数字，前导0会省略
+        包含有效16进制格式的，会转化成相同大小的十进制整数
+        空字符串，转化成0
+        其他格式字符串，转换成NaN
+      2.parseInt(sth),转换时首先会将所有前置空格删除掉，直到找到第一个非空格字符，开头字符是数字会被解析，后面的字母等会被截取掉，如果开头是非数字，就会被转换成NaN
+        parseInt()也可以将小数转换成整数
+      3.parseFloat(),从第一个字符开始解析,如果第一个不是数字是字母会直接转换成NaN,如果前面是数字后面是字母，会将字母截取掉,如果开始就是数值类型的话 ，会保留小数点后的内容，只有第一个小数点有效，前面无效的0会被舍弃掉，十六进制数始终为0，没有小数点或小数点后都为0的就会转换成整数。
+    */
+    var str22="22";
+    console.log(typeof(Number(str22)),"字符串转换成数字类型");
+    console.log(Number(undefined),typeof(Number(undefined)),"undefined转换成数值类型","NaN是数值类型");
+    var inte='123asd';
+    var ninte="a123de";
+    console.log(parseInt(inte),parseInt(ninte),"将字符串转换成数字");
+    var decimal="1.282828291010293834747";
+    console.log(parseInt(decimal),"将小数转换成整数");
+    var floatNum="as12";
+    var floatnum="12.0300009as";
+    console.log(parseFloat(floatNum),parseFloat(floatnum),"将字符串转换成浮点型数据");
+
+    /*
+      object类型：
+        1.是一组数据或功能的集合
+        2.声明形式：var obj=new Object();
+        3.属性和方法：
+          Constructor，保存用于创建当前对象的函数
+          hasOwnProperty(propertyName),检测给定属性在当前的对象实例中是否存在
+          isPrototypeOf(object),检测传入的对象是否是另一个对象的原型
+          propertyIsEnumerable(propertyName),检测给定属性能否用for...in语句进行枚举
+          toLocaleString(),返回对象的字符串表示，该字符串与执行环境的地区对应
+          toString(),返回对象的字符串表示
+          valueOf(),返回对象的字符串，数值或布尔值表示；通常与toString()的值相同
+    */
+    //声明对象的两种方法：
+      var obj1={
+        name:"fengtingting",
+        age:21,
+        eat(){
+          console.log("两块烤地瓜够吗？够了，谢谢妈妈~")
+        }
+      }
+
+      var obj2=new Object();
+      obj2.numId=99031245;  
+      obj2.school="东北农业大学",
+      obj2.test=function(){
+        console.log("好好考试，天天向上");
+      }
+      
+      console.log(obj1,obj2,"定义了obj1，obj2这个对象的属性和方法");
+
+      //两种声明方法的区别是，第一种直接创建JSON对象，第二种用构造函数实例化对象，前者的初始化比较方便，可以在初始化的时候同时赋值
+  </script>
+</body>
+</html>
