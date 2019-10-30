@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      javascript类型转换：
+        Number()转换为数字，String()转换成字符串,Boolean()转化成布尔值
+    */
+    console.log(Number("111"),String(1111),Boolean(11111));
+    /*
+      javascript中的五种数据类型：
+      string/number/boolean/object/function
+      3种对象类型：
+      Object/Date/Array
+      2个不包含任何值的数据类型：
+      null/undefined
+    */
+    /*
+    typeof可以用来判断变量的值，特殊需要注意的有
+      NaN的数据类型是number
+      数组(Array)的数据类型是object
+      日期(Date)的数据类型是object
+      null的数据类型是object
+      未定义的变量的数据类型为undefined
+    */
+    /*
+      我们可以通过constructor属性来查看对象是否为数组或者日期
+    */
+    function isArray(myArray){
+      return myArray.constructor.toString().indexOf("Array")>-1;
+    }
+    function isDate(mtDate){
+      return myDate.constructor.toString().indexOf("Date")>-1;
+    }
+    /*
+      Number方法：
+        toExponential(),把对象的值转换为指数计数法
+        toFixed(),把数字转换成字符串，结果的小数点后有指定位数的数字
+        toPrecision(),把数字格式化为指定的长度
+      Date方法：
+        getDate(),从Date对象中返回一个月的某一天（1~31）
+        getDay(),从Date对象返回一周中的某一天（0~6）
+        getFullYear(),从Date对象以四位数字返回年份
+        getHours(),返回Date对象的小时（0~23）
+        getMilliseconds(),返回Date对象的毫秒（0~999）
+        getMinutes(),返回Date对象的分钟（0~59）
+        getSeconds(),返回Date对象的秒数（0~59）
+        getTime(),返回1970年1月1日距离至今的毫秒数
+    */
+
+  </script>
+</body>
+</html>
