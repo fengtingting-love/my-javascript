@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="changeNum()">点击更换结果</button>
+  <button onclick="show('冯婷婷',13)">显示姓名</button>
+  <p id="changeValue">本来的值</p>
+  <script>
+    //函数中的return会将return后得到的值返回给调用这个函数的位置
+    function res(a,b){
+      return a*b
+    }
+    function changeNum(){
+      document.getElementById("changeValue").innerHTML=res(3,5);
+    }
+    var show=function(a,b){
+      console.log("我的名字是:"+a+", 今年"+b+"岁");
+    }
+    /*
+      函数命名方法：
+      1.静态方法：function fn(){}
+      2.直接量方法:var fn=function(){}
+    */
+    /*
+      函数调用方法：
+      1.直接调用 fn(a,b) 函数名(实参列表)
+      2.在连接中调用 <a href="javascript:函数名()">描文字</a>
+      3.在事件中调用 事件类型="函数名()"
+      4.递归调用 在函数内部调用函数自身  格式：function fn(){代码  fn();}
+      5.方法：apply(将函数作为对象的方法来调用，将参数以数组的形式传递给该方法) call(将函数作为对象的方法来调用，将指定参数传递给该方法)
+      6.toString() 返回函数的字符串表示
+    */
+    /*
+      arguments对象
+        功能：存放实参的参数列表
+        特性：仅在函数体内使用
+             带有下标属性，但并非数组
+             函数声明时自动初始化
+        属性：length 获取函数实参的长度
+             callee 返回当前正在指向的函数
+             caler 返回调用当前正在执行函数的函数名
+    */
+    /*
+      函数参数：
+        参数类型：形参：定义函数时使用的参数，接收调用该函数时传递的参数     实参：调用函数时传递给函数的实际参数
+        特   性：参数的个数没有限制 若实参小于形参，多余的形参=undefined  若实参大于形参，多余的实参被忽略
+                参数的数据类型没有限制
+                通过arguments对象访问参数数组
+                参数始终按值传递 基本类型->传值   引用类型->传址
+    */
+    /*
+      指针标识：
+        1.this指向当前操作
+        2.callee指向参数集合所属函数
+        3.prototype指向函数附带的原型对象
+        4.constructor指向创建该对象的构造函数
+    */
+  </script>
+</body>
+</html>
