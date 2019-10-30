@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var res = false;
+    console.log(res * 1, "Boolean型数据*1，可以返回0或1");
+    var ree = NaN;
+    console.log(!!ree, "两次取反，可以将任何类型书记处转换成Boolean型")
+    //逻辑&&
+    /*
+      两个操作数进行&&操作：
+        1.第一个操作数是对象，返回第二个操作数
+        2.第二个操作数是对象，第一个操作数为true时返回该对象
+        3.两个操作数都是对象，返回第二个操作数
+        4，一个操作数时null/NaN/undefined，将返回null/NaN/undefined
+        5.逻辑与中有一个短路操作，即第一个操作数已经为false的时候不在对第二个操作数进行处理
+    */
+    /*
+      if...else...语句与三目运算符的区别：if...else没有返回值，三目运算符有返回值
+      break语句用于跳出循环，continue语句用于跳出循环中的一个迭代
+    */
+    var today = new Date().getDay();
+    switch (today) {
+      case 1:
+        alert("today is monday")
+        break
+      case 1:
+        alert("today is monday")
+        break
+      case 1:
+        alert("today is monday")
+        break
+      case 1:
+        alert("today is monday")
+        break
+      case 1:
+        alert("today is monday")
+        break
+      default:
+        alert("today is weekend")
+        break
+    }
+  </script>
+</body>
+
+</html>
