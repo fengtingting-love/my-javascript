@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="errorDetection()">错误检测</button>
+  <button onclick="errorThrow()">throw</button>
+  <label for="content"></label><input id="content" type="text" placeholder="请输入任意类型的值">
+  <div id="another"></div>
+  <script>
+    //try用来检测代码块是否有误，catch用来抓取这个错误，throw创建或者抛出异常，throw/try/catch一起使用，就能够控制程序流，生成自定义错误消息
+    function errorDetection(){
+      try{
+        addalert("I am back");
+      }
+      catch(err){
+        txt="本页面产生一个错误。\n\n";
+        txt+="错误描述："+err.message+"\n\n";
+        txt+="点击确定即可继续。\n\n"
+        alert(txt);
+      }
+    }
+    function errorThrow(){
+      try{
+        var x=document.getElementById("content").value;
+        if(x=='') throw "empty";
+        if(isNaN(x)) throw "not a number";
+        if(x>10) throw "the number is too big";
+        if(x<5) throw "the number is too low";
+      }
+      catch(err){
+        var y=document.getElementById("another");
+        y.innerHTML="Error:"+err+"."
+      }
+    }
+  </script>
+</body>
+</html>
