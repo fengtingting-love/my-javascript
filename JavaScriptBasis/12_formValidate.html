@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="demo_form.asp" name="myForm" method="POST" onsubmit="return validateForm()">
+    First name: <input type="text" name="fname">
+    <input type="submit">
+  </form>
+  <form action="email_form.asp" name="email" method="POST" onsubmit="return validateEmail">
+    Email: <input type="text" name="ename">
+    <input type="submit">
+  </form>
+  <script>
+    /*
+    JavaScript 表单验证
+    JavaScript 可用来在数据被送往服务器前对 HTML 表单中的这些输入数据进行验证。
+    表单数据经常需要使用 JavaScript 来验证其正确性：
+    验证表单数据是否为空？
+    验证输入是否是一个正确的email地址？
+    验证日期是否输入正确？
+    验证表单输入内容是否为数字型？
+    */
+    function validateForm(){
+      var values=document.forms["myForm"]["fname"].value;
+      if(values==null||values==""){
+          alert("First name can not null")
+          return
+      }
+    }
+    /*
+    E-mail 验证
+    下面的函数检查输入的数据是否符合电子邮件地址的基本语法。
+    意思就是说，输入的数据必须包含 @ 符号和点号(.)。同时，@ 不可以是邮件地址的首字符，并且 @ 之后需有至少一个点号：
+    */
+    function validateEmail(){
+      var evalue=document.forms["email"]["ename"].value;
+      var atpos=evalue.indexOf("@");
+      var dotpos=x.lastIndexOf(".");
+      if(atpos<1||dotpos<atpos+2||dotpos+2>=evalue.length){
+        alert("this is a wrong email");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
