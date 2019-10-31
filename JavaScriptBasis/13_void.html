@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a href="javascript:void(0)">单击该链接不会发生任何事</a>
+  <a href="javascript:void(alert('Warning!'))">点击警告</a>
+  <script>
+    /*
+    javascript:void(0) 含义:javascript:void(0) 中最关键的是 void 关键字， void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值。
+    */
+    /**
+    href="#"与href="javascript:void(0)"的区别
+    # 包含了一个位置信息，默认的锚是#top 也就是网页的上端。
+    而javascript:void(0), 仅仅表示一个死链接。
+    在页面很长的时候会使用 # 来定位页面的具体位置，格式为：# + id。
+    如果你要定义一个死链接请使用 javascript:void(0) 。
+    */
+    /*
+    void()仅仅是代表不返回任何值，但是括号内的表达式还是要运行
+    */
+  </script>
+</body>
+</html>
