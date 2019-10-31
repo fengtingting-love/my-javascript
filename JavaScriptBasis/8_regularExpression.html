@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式</title>
+</head>
+<body>
+  <div>
+  <a href="https://www.w3cschool.cn/javascript/js-regexp.html">正则表达式学习脑图来源</a>
+  </div>
+  <script>
+    /*
+      1.正则表达式，使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式，搜索模式可用于文本搜索和文本替换
+      2.正则表达式是由一个字符序列形成的搜索模式。当你在文本中搜索数据时，你可以用搜索模式来描述你要查询的内容。正则表达式可以是一个简单的字符，或一个更复杂的模式。正则表达式可用于所有文本搜索和文本替换的操作。
+      3.在JavaScript中，正则表达式通常用于两个字符串方法：search()和replace().
+        search()方法：用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回子字符串的起始位置
+        replace()方法：用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式相匹配的子字符串
+      4.格式:   /内容/修饰符
+    */
+    /*
+      1.search()方法使用正则表达式
+    */
+    var str="hello my baby!";
+    var res=str.search(/ba/i);
+    console.log(res,"下标从0开始，返回值为搜索到第一个与其匹配的内容的下标");
+    /*
+      search()方法使用字符串
+    */
+    var str2="hello my baby!";
+    var res2=str2.search("baby");
+    console.log(res2,"下标从0开始，返回值为搜索到第一个与其匹配的内容的下标")
+    /*
+      2.replace()方法使用正则表达式
+    */
+    var stt="hello! beautiful girl~"
+    var ree=stt.replace(/girl/i,"boy");
+    console.log(stt,ree,"使用正则表达式方法将内容替换")
+    /*
+      3.各种修饰符 
+        i 执行对大小写不敏感的匹配
+        g 执行全局匹配(查找所有匹配而非在找到第一个匹配后就停止)
+        m 执行多行匹配
+    */
+    /*
+      4.正则表达式模式：
+        [abc] 查找方括号之间的任何字符
+        [0-9] 查找任何从0到9的数字
+        (x|y) 查找任何以|分隔的选项
+    */
+    /*
+      5.元字符：拥有特殊含义的字符：
+        \d,查找数字
+        \s,查找空白字符
+        \b,匹配单词边界
+        \uxxxx,查找以十六进制数xxxx规定的Unicode字符
+    */
+    /*
+      6.量词
+        n+,匹配任何包含至少一个n的字符串
+        n*,匹配任何包含零个或多个n的字符串
+        n?匹配任何包含零个或一个n的字符串
+    */
+    /*
+      使用test()方法：test()方法是一个正则表达式方法，用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回true，否则返回false,也可以写在一行
+    */
+    var tst=/llo/;
+    console.log(tst.test("the best day is up to hello!"),"将正则表达式赋值给变量然后展示");
+    console.log(/my/.test("it is my baby"),"直接将正则表达式写出来");
+    /*
+      使用exec()方法用于检索字符串中的正则表达式的匹配。
+      该函数返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为null.
+    */
+    console.log(/e/.exec("The best things in life are free!"),"使用exec方法");
+    
+  </script>
+</body>
+</html>
