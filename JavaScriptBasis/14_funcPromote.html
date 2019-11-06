@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数</title>
+</head>
+<body>
+  <script>
+    /**
+    函数提升：
+    提升（Hoisting）是 JavaScript 默认将当前作用域提升到前面去的的行为。
+    提升（Hoisting）应用在变量的声明与函数的声明。
+    */
+    console.log(myfunction(6));//返回36
+    function myfunction(a){
+      return a*a;
+    } 
+    /**
+      注意事项：使用表达式定义函数时无法提升,如下，会报错
+    **/
+    // var z=fn(3)
+    // var fn=function(b){return b*b}
+    // console.log(z);
+
+
+    /**
+      自调用函数：
+        函数表达式可以自调用
+        自调用表达式会自动调用
+        如果表达式后面紧跟（），则会自动调用
+        Y不能自调用声明的函数
+        通过添加括号，来说明他是一个函数表达式
+        函数自调用可以匿名也可以给他附一个名字
+    */
+    (function(){
+      console.log("我发起狠来我自己都调用")
+    })();
+    /*
+      函数自调用，将结果赋值给一个变量
+    */
+    var res=(
+      function(f,g){
+        return f*g
+      }
+    )(2,9);
+    console.log(res);
+    /*
+      函数是对象
+        JavaScript中使用typeof操作符判断函数类型会返回function，但，JavaScript函数描述为一个对象更加准确，JavaScript函数有属性和方法
+        arguments.length属性返回函数调用过程中接收到的参数个数
+    */
+    function newFn(j,k,l,f){
+      return arguments.length
+    }
+    var c=newFn(1,2,3,4);
+    console.log(c,"arguments.length，返回参数个数")
+    /*
+    函数显示参数在函数定义时列出
+    函数隐藏参数在函数调用时传递给函数真正的值
+    函数参数规则：
+      JavaScript函数定义时参数没有指定数据类型
+      JavaScript函数对隐藏参数没有进行检测
+      JavaScript函数对隐藏参数的个数没有进行检测
+    */
+    /*
+      默认参数：如果函数在调用时缺少参数，参数会默认设置为undefined，这种方法不如为参数设置一个默认值要好
+    */
+    function defaultPara(x,y){
+      y=y||0; //如果传递y过来，y等于传过来的值，如果没有传递过来，y=0
+    }
+    /*
+      如果函数调用时设置了过多的参数，参数将无法被引用，因为无法找到对应的参数名，只能用arguments对象来调用
+
+      Arguments对象：
+        javascript函数有一个内置的对象arguments对象
+        argument对象包含了函数调用的参数数组，通过这种方式可以很方便的找到最后一个参数的值
+    */
+    resMax=findMax(1,2,3,4,6,8,2,9);
+    function findMax(){//这种方式就是函数隐藏参数，等调用的时候再传递参数
+      var i,max=arguments[0];
+      if(arguments.length<2) return max;//根据arguments.length判断你传入参数的个数，然后作为下标循环遍历这个数组，找到最终想要的值
+      for(i=0;i<arguments.length;i++){
+        if(arguments[i]>max){
+          max=arguments[i];
+        }
+      }
+      return max;
+    }
+    console.log(resMax);
+    resAll=sumAll(1,2,5,6,7,3,8,9);
+    function sumAll(){
+      var i,sum=0;
+      for(i=0;i<arguments.length;i++){
+        sum+=arguments[i];
+      }
+      return sum;
+    }
+    console.log(resAll);
+    /*
+      通过值传递参数：
+        在函数中调用的参数是函数的参数
+        如果函数修改参数的值，将不会修改参数的初始值(在函数外定义)
+        JavaScript函数传值只是将参数的值传入函数，函数会另外配置内存保存参数值，所以并不会改变原参数的值
+    */
+    var paraValue=1;
+    function changeParaValue(paraValue){
+      paraValue++;
+      console.log(paraValue,"在函数内的值");
+    }
+    changeParaValue(paraValue);
+    console.log(paraValue,"在函数外的值");
+    /*
+      通过对象传递参数：
+        在JavaScript中，可以引用对象的值。
+        因此我们在函数内部修改对象的属性就会修改其初始的值
+        修改对象属性可做用于函数外部(全局变量)
+    */
+    var paraObj={
+      value:333
+    };
+    function changeParaObj(paraObj){
+      paraObj.value--;
+      console.log(paraObj.value,"在函数内部对象的属性值");
+    }
+    changeParaObj(paraObj);
+    console.log(paraObj,"在函数外部对象的属性值");
+    /*
+      JavaScript函数有4种调用方式：每种方式不同在于this的初始化，一般而言，在JavaScript中，this指向函数执行时的当前对象
+      this是保留关键字，不可修改
+    */
+    function callFunc1(a,b){
+      return a*b
+    };
+    callFunc1(2,9);//返回18
+    //👆这个函数不属于任何对象，在JavaScript中它始终是默认的全局对象。在HTML中默认的全局对象是HTML页面本身，所以函数是属于HTML页面
+    //在浏览器中的页面对象是浏览器窗口(window)对象，所以以上函数会自动变为window对象，所以调用时 callFunc1()和window.callFunc1()是一样的
+    //这是调用JavaScript函数常用的方法，但却是不好的编程习惯，全局变量、方法或函数容易造成命名冲突的bug
+
+    /*
+    全局对象：
+      当函数没有被自身的对象调用时，this就会变成全局对象。在web浏览器中全局对象时浏览器窗口(window对象)，该实例返回this的就是window对象
+      函数作为全局对象调用，会使this的值成为全局对象，使用window对象作为一个变量容易造成程序崩溃
+    */
+    function globalfunc(){
+      return this;
+    }
+    console.log(globalfunc(),"看全局对象返回的this是不是window对象");
+    /*
+      函数作为方法调用：
+      在JavaScript中你可以将函数定义为对象的方法,该函数属于这个对象，person是这个函数的所有者
+      this对象，拥有JavaScript代码，this的值为person对象
+    */
+    var person={
+      name:'fengtingting',
+      age:18,
+      say:function(){
+        return this  //可以this.name和this.age获得
+      }
+    }
+    console.log(person.say(),"以调用属性的方法来返回这个this的值,this指的是该对象");
+    /*
+      使用构造函数调用函数：
+      如果函数在调用前使用了new关键字，则是调用了构造函数。
+      这看起来就像创建了新的函数，但实际上JavaScript函数是重新创建的对象
+      构造函数的调用会创建一个新的对象，新对象会继承构造函数的属性和方法
+      构造函数中this关键字没有任何值，this的值在函数调用时实例化对象创建
+    */
+    function construFunc(arg1,arg2){
+      this.name=arg1;
+      this.age=arg2;
+      return this
+    }
+    var construFuncRes=new construFunc("冯婷婷",18);
+    console.log(construFuncRes.name,construFuncRes,"new看起来是创建新的函数，实际上就是调用了定义好的构造函数");
+    /*
+      作为函数方法调用函数：
+        在JavaScript中，函数是对象，JavaScript函数有它的属性和方法。
+        call和apply是预定义的函数方法。两个方法可用于调用函数，两个方法的第一个参数必须是对象本身
+    */
+    function methodFunc(a,b){
+      return a*b;
+    }
+    var methodres=methodFunc.call(methodres,10,2);
+    console.log(methodres,"call绑定函数")
+    //apply
+    function methodApply(a,b){
+      return a*b;
+    }
+    var myArray=[3,4];
+    var arrayRes=methodApply.apply(arrayRes,myArray);
+    console.log(arrayRes,"apply绑定函数");
+    /*
+    call/apply两个方法都是用对象本身作为第一个参数。两者的区别在于第二个参数
+    apply传入的参数是一个数组，也就是将多个参数组合成一个数组传入，而call则是一个一个参数依次传递的结果
+    在JavaScript严格模式下，在调用函数时第一个参数将会成为this的值，即使该参数不是一个对象。
+    在非严格模式下：如果第一个参数的值是null或者undefined，他将使用全局对象替代
+    */
+  </script>
+</body>
+</html>
