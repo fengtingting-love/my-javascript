@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+<body>
+  <script>
+    /*
+      javascript变量可以是全局变量和局部变量，私有变量可以用到闭包
+
+        函数可以访问函数内部的变量
+        函数也可以访问函数外部的变量
+    */
+    function calcu(){
+      var a=4;
+      return a*a;
+    }
+    var b=5;
+    function calcu2(){
+      return b*b;
+    }
+    /*
+    在上面两个例子中，变量a是一个局部变量，局部变量只能用于它的函数内部，对于其他的函数和脚本代码是不可用的
+    变量b是一个全局变量，在web页面中全局变量属于window对象，全局变量可以应用在页面上的所有脚本
+
+    全局变量如果和局部变量同名，他们两个也不是同一个变量，修改其中一个，另一个的值不会发生改变
+
+    变量声明如果不用var关键字，那么他就是一个全局变量，就算在函数内部这种声明也是全局变量
+    */
+    /*
+      变量的生命周期：
+        全局变量的作用域是全局性的，即在整个JavaScript程序中，全局变量处处都在。
+        而在函数内部声明的变量，只在函数内部起作用。这些变量是局部变量，作用域是局部性的；函数的参数也是局部性的，只在函数内部起作用。
+    */
+    /*
+    计数器困境：如以下实例
+    */
+    var counter=0;
+    function add(){
+       return counter+=1;
+    }
+    add();
+    add();
+    add();
+    var resCount=add();
+    console.log(resCount,"第四次调用方法counter的值为多少");
+    //因为counter是全局变量，所以我不调用add方法也可以用其他方法来改变counter的值，这样在编程过程中，如果我们其他的方法可能会影响这个变量时
+    //所得到的结果有可能就会受到影响，这时我们在想，如果把counter1变量放在里面效果又是如何呢?
+    function add1(){
+      var counter1=0;
+      return counter1+=1;
+    }
+    add1();
+    add1();
+    add1();
+    console.log(add1(),"第四次调用方法counter1的值为多少")
+    //可以看出，如果我们在函数内部定义一个局部变量，那么不管我们调用了多少次结果都为1，全局函数执行一次后变量值会更新保存，而局部变量则不会提供这种便利
+    //JavaScript内嵌函数可以解决这个问题
+    /*
+      所有的函数都能访问全局变量
+      实际上，在JavaScript中，所有函数都能访问他们上一层的作用域
+      JavaScript支持嵌套函数，即嵌套函数可以访问上一层的函数变量
+    */
+    function addAll(){
+      var counter2=0;
+      function plus(){
+        counter2+=1;
+      }
+      plus();
+      return counter2;
+    }
+    //如果我们能在外面调用plus函数，这样就可以解决当前困境而且counter2只调用一次，我们需要闭包
+
+    var add=(function(){
+      var counterr=0;
+      return function(){
+        counterr+=1;
+        console.log(counterr)
+      }
+    })()
+    add();
+    add();
+    add();
+    add();
+    /*
+      👆add作为自调用函数的返回值，自我调用只执行一次。设置计数器为0，并返回函数表达式
+      add变量可以作为一个函数使用，非常棒的部分是他可以访问上一层作用域的计数器，
+      这个就叫做JavaScript闭包，他们使得函数拥有私有变量成为可能
+      counterr受匿名函数的作用域保护，只能通过add方法来修改
+    */
+    /*
+      闭包是可以访问上一层函数的，即使上一层函数已经关闭
+    */
+  </script>
+</body>
+</html>
