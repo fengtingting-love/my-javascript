@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试jQuery</title>
+</head>
+<body>
+  <div id="div1"></div>
+  <!-- 
+    如果需要测试JavaScript库，您需要在网页中引用它。
+   -->
+   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <!-- 
+     jquery描述：
+      主要的jQuery函数是$()函数（jQuery函数）,如果您向该函数传递DOM对象，他会返回jQuery对象，带有向其添加的jQuery功能。jQuery允许您通过CSS选择器来获取元素。
+    -->
+    <script>
+      //JavaScript函数向标签中加入文本内容
+      function myFunction(){
+        var obj=document.getElementById("div1");
+        obj.innerHTML="hello javascript";
+      }
+      onload=myFunction;
+      //jQuery向标签中加入文本内容
+      function myFunction(){
+        $('#div1').html("hello jquery");
+        $(document).ready(myFunction);
+        $("#h01").attr("style","color:red").html("Hello jQuery");//jquery的链式语法，可以一直.下去
+      }
+      //jQuery 返回 jQuery 对象，与已传递的 DOM 对象不同。
+      //jQuery 对象拥有的属性和方法，与 DOM 对象的不同。
+      //您不能在 jQuery 对象上使用 HTML DOM 的属性和方法。
+    </script>
+</body>
+</html>

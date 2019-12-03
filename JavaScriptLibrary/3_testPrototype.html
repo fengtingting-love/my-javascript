@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试Prototype</title>
+</head>
+<body>
+  <div id="div1"></div>
+  <!-- 
+    Prototype描述：
+      prototype提供的函数可以使HTML DOM编程更加容易。
+      与jQuery类似，prototype也有自己的$()函数。
+      $()函数接受HTML DOM元素的id值(或DOM元素)，并会向DOM对象添加新的功能。
+      与jQuery不同，prototype没有用以取代window.onload()的ready方法，相反，prototype会向浏览器以及HTML DOM添加扩展。
+   -->
+   <script src="http://apps.bdimg.com/libs/prototype/1.7.1.0/prototype.js"></script>
+   <script>
+     //JavaScript方法：
+     function myFunction(){
+       var obj=document.getElementById("div1");
+       obj.innerHTML="hello javascript";
+     }
+     onload=myFunction();
+     //Prototype方法：
+     function myfunction(){
+       $("div1").insert("hello prototype!");
+       $("h01").writeAttribute("style","color:red").insert("Hello Prototype!");//允许链式调用
+     }
+     Event.observe(window,"load",myFunction);
+     //Event.observe()接受三个参数：
+      //第一个参数：处理的DOM或BOM对象
+      //第二个参数：处理的事件
+      //第三个参数：调用的函数
+   </script>
+</body>
+</html>
