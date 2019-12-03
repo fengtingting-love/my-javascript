@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Number对象</title>
+</head>
+<body>
+  <!-- 1.JavaScript Number对象
+    JavaScript的Number对象是经过封装的能让你处理数字值的对象
+    JavaScript的Number对象由Number()构造器创建
+    JavaScript只有一种数字类型
+    可以使用也可以不适用小数点来书写数字
+  -->
+  <script>
+    //极大或极小的数字可通过科学(指数)计数法来写：
+    var x=123e5;
+    var y=123e-5;
+    console.log(x,y);//12300000 0.00123
+  </script>
+  <!-- 2.所有JavaScript数字均为64位
+    JavaScript不是类型语言，所以与其它编程不同的是，不定义不同类型的数字，比如整数、短、长、浮点等。
+    在JavaScript中，数字部分整数类型和浮点数类型，所有的数字都是浮点型类型
+  -->
+  <!-- 3.精度
+    整数最多为15位，小数最大位数是17，但是浮点运算并不总是100%准确
+  -->
+  <!-- 4.八进制和十六进制
+    如果前缀为0，则JavaScript会把数值常量解释为八进制数，
+    如果前缀为0x，则解释成十六进制数，
+    默认情况下，JavaScript数字为十进制显示，
+    可以用toString()方法输出16进制、8进制、2进制
+  -->
+  <script>
+    var myNumber=128;
+    var shiliu=myNumber.toString(16);
+    var ba=myNumber.toString(8);
+    var er=myNumber.toString(2);
+    console.log(shiliu,ba,er,"输出该数字不同进制结果")
+  </script>
+  <!-- 5.无穷大 Infinity
+    当数字运算结果超过了JavaScript所能表示的数字上限（溢出），结果为一个无穷大的值，在JavaScript中用infinity表示。
+    同样地，当负数的值超过了JavaScript所能表示的负数范围，结果为负无穷大，在JavaScript中用-infinity表示。
+    无穷大值得行为特征和我们所期望的是一致的：基于他们的加、减、乘、除运算结果还是无穷大(当然，正负号还要保留)
+  -->
+  <script>
+    //5.无穷大
+    myNewNumber=2;
+    while(myNewNumber!=Infinity){
+      myNewNumber=myNewNumber*myNewNumber
+      console.log(myNewNumber,"如果不是无穷，就会自乘");
+    }
+    console.log(myNewNumber/0,"任何数字让0做除数，也会产生无穷")
+  </script>
+</body>
+</html>

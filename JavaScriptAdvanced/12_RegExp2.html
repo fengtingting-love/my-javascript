@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RegExp实例三：反转匹配</title>
+</head>
+<body>
+  <script>
+    var testString="how many non-space characters are there in this sentence?"  
+    var expression=/\s/g;//匹配空白字符
+    var expression1=/\S/g;//匹配非空白字符
+    var expression2=/./g;//匹配全部字符
+    var res=testString.match(expression).length;//返回8个空白字符
+    var res1=testString.match(expression1).length;//返回49个空白字符
+    var res2=testString.match(expression2).length;//返回57个全部字符
+    console.log(res,res1,res2);
+  </script>
+</body>
+</html>

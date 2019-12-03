@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cookies</title>
+</head>
+<body>
+  <!-- 
+    Cookies 用于存储 web 页面的用户信息。由于 JavaScript 是运行在客户端的脚本，所以可以使用JavaScript来设置运行在客户端的Cookies。
+   -->
+   <!-- 
+     什么是cookies？
+      Cookies 是一些数据, 存储于你电脑上的文本文件中。当 web 服务器向浏览器发送 web 页面时，在连接关闭后，服务端不会记录用户的信息。
+      Cookies 的作用就是用于解决 "如何记录客户端的用户信息":当用户访问 web 页面时，他的名字可以记录在 cookie 中。在用户下一次访问该页面时，可以在 cookie 中读取用户访问记录。
+      当浏览器从服务器上请求 web 页面时， 属于该页面的 cookies 会被添加到该请求中。服务端通过这种方式来获取用户的信息。
+      Cookies 以名/值对形式存储，如下所示:
+          username=John Doe
+    -->
+    <!-- 
+      JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookies。
+        //创建Cookie
+        document.cookie="username=John Doe";   
+        您还可以为 cookie 添加一个过期时间（以 UTC 或 GMT 时间）。默认情况下，cookie 在浏览器关闭时删除：
+        document.cookie="username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT";
+        您可以使用 path 参数告诉浏览器 cookie 的路径。默认情况下，cookie 属于当前页面。    
+        document.cookie="username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=/";
+        在 JavaScript 中, 可以使用以下代码来读取 cookies：var x = document.cookie;
+        document.cookie 将以字符串的方式返回所有的 cookies，类型格式： cookie1=value; cookie2=value; cookie3=value;
+
+        //修改Cookie
+        document.cookie="username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=/";
+
+        //删除Cookie
+        删除 cookie 非常简单。您只需要设置 expires 参数为以前的时间即可，如下所示，设置为 Thu, 01 Jan 1970 00:00:00 GMT:    
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT";注意，当您删除时不必指定 cookie 的值。
+     -->
+     <!-- 
+        Cookie字符串
+          document.cookie 属性看起来像一个普通的文本字符串，其实它不是。
+          即使您在 document.cookie 中写入一个完整的 cookie 字符串, 当您重新读取该 cookie 信息时，cookie 信息是以名/值对的形式展示的。
+          如果您设置了新的 cookie，旧的 cookie 不会被覆盖。 新 cookie 将添加到 document.cookie 中，所以如果您重新读取document.cookie，您将获得如下所示的数据：
+          cookie1=value; cookie2=value;
+          如果您需要查找一个指定 cookie 值，您必须创建一个JavaScript 函数在 cookie 字符串中查找 cookie 值。
+      -->
+</body>
+</html>

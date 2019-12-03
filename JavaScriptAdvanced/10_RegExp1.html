@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式实例一：操作字符串</title>
+</head>
+<body>
+  <script>
+    // 初始字符串，用于在后面进行内容匹配
+    var testString = "Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.";
+    
+    // 举例
+    var expressionToGetSoftware = /software/gi;
+    var softwareCount = testString.match(expressionToGetSoftware).length;
+    console.log(softwareCount,"根据匹配规则，在testingString中符合规则的为1个");
+    
+    //匹配所有内容，可以查看一下一共多少个字符，包括空格
+
+    var expression = /./gi;//匹配所有单个字符，包括空格
+    var expression1 = /and/gi;//匹配有多少个and
+    
+    // This code counts the matches of expression in testString
+    var andCount = testString.match(expression).length;
+    var andCount1 = testString.match(expression1).length;
+    console.log(andCount,andCount1,"可以用这种方法获取");
+  </script>
+</body>
+</html>

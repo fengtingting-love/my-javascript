@@ -1,0 +1,45 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Window</title>
+  </head>
+  <body>
+    <!-- 
+      JavaScript Window --浏览器对象模型
+
+      浏览器对象模型(BOM)使JavaScript有能力与浏览器"对话"
+      Window对象是BOM中所有对象的核心，除了是BOM中所有对象的父对象外，还包含一些窗口控制函数
+
+      浏览器对象模型(BOM)--Browser Object Model 尚无正式标准
+     -->
+     <!-- 
+       Window对象：
+        所有浏览器都支持window对象。他表示浏览器窗口。
+        所有JavaScript全局对象、函数以及变量均自动成为Window对象的成员
+        全局变量是Window对象的属性
+        全局函数是Window对象的方法
+        甚至HTML DOM的document也是window对象的属性之一
+          window.document.getElementById('header');
+          document.getElementById('header');
+          这两个等价
+      -->
+      <!-- 
+        浏览器窗口的尺寸(浏览器的窗口，不包含工具栏和滚动条)
+          对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：
+
+          window.innerHeight - 浏览器窗口的内部高度
+          window.innerWidth - 浏览器窗口的内部宽度
+          对于 Internet Explorer 8、7、6、5：
+
+          document.documentElement.clientHeight
+          document.documentElement.clientWidth
+          或者
+
+          document.body.clientHeight
+          document.body.clientWidth
+       -->
+  </body>
+  </html>

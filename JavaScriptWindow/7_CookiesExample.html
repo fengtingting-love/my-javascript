@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cookie Example</title>
+</head>
+
+<body>
+  <!-- 
+    在以下实例中，我们将创建 cookie 来存储访问者名称。
+    首先，访问者访问 web 页面, 他将被要求填写自己的名字。该名字会存储在 cookie 中。
+    访问者下一次访问页面时，他会看到一个欢迎的消息。
+    在这个实例中我们会创建 3 个 JavaScript 函数:
+        设置 cookie 值的函数
+        获取 cookie 值的函数
+        检测 cookie 值的函数
+   -->
+  <script>
+    //首先，我们创建一个函数用于存储访问者的名字：
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toGMTString();
+      console.log(cname + "=" + cvalue + ";" + expires);
+      document.cookie = cname + "=" + cvalue + ";" + expires;
+    }
+    /*
+    函数解析：
+        以上的函数参数中，cookie 的名称为 cname，cookie 的值为 cvalue，并设置了 cookie 的过期时间 expires。
+        该函数设置了 cookie 名、cookie 值、cookie过期时间。
+    */
+    //然后，我们创建一个函数用户返回指定Cookie的值
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+        return "";
+      }
+    }
+    /*函数解析：
+    cookie 名的参数为 cname。
+    创建一个文本变量用于检索指定 cookie: cname + "="。
+    使用分号来分割 document.cookie 字符串，并将分割后的字符串数组赋值给 ca(ca = document.cookie.split(';')) 。
+    循环 ca 数组(i = 0; i < ca.length; i++) ，然后读取数组中的每个值，并去除前后空格(c = ca[i].trim()) 。
+    如果找到 cookie(c.indexOf(name) == 0) ，返回 cookie 的值(c.substring(name.length, c.length) 。
+    如果没有找到 cookie, 返回 ""。
+    */
+
+    //检测 cookie 值的函数，最后，我们可以创建一个检测 cookie 是否创建的函数。如果设置了 cookie，将显示一个问候信息。如果没有设置 cookie，将会显示一个弹窗用于询问访问者的名字，并调用 setCookie 函数将访问者的名字存储 365 天：
+    function checkCookie(){
+      var username=getCookie("username");
+      if(username!=""){
+        alert("Welcome again"+username);
+      }else{
+        username=prompt("Please enter your name:","");
+          if(username!=''&&username!=null){
+            setCookie("username",username,365);
+          }
+        }
+    }
+    window.onload=function(){
+      console.log("页面加载中，请稍后...")
+      checkCookie();
+    }
+  </script>
+</body>
+
+</html>

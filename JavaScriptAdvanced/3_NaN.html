@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NaN</title>
+</head>
+<body>
+  <!-- NaN属性是代表非数字值得特殊值。该属性用于指示某个值不是数字。可以把Number对象设置为该值，来指示其不是数字
+      你可以使用isNaN()全局函数来判断一个值是否是NaN值
+  -->
+  <script>
+    var x=100;
+    var y="100";
+    var w="100n";
+    var z=100*w;
+    console.log(isNaN(x),isNaN(y),isNaN(w),isNaN(z),"查看四个变量是否为NaN类型");//false false true true
+    //个人理解：如果一个变量无法转化为数字，那么就是NaN
+  </script>
+  <!-- 
+    数字可以私有数据进行初始化：
+      x=123,   typeof(x)   //Number
+      JavaScript数字对象初始化,y=new Number(123); typeof(y) //Object
+      console.log(x===y)   //false,因为x是number类型，y是object，类型不相同
+   -->
+   <!-- 
+     数字属性：
+      MAX_VALUE 最大值
+      MIN_VALUE 最小值
+      NEGATIVE_INFINITY  负无穷大
+      POSITIVE_INFINITY  正无穷大
+      NAN   not a number
+      prototype  原型
+      constructor 构造函数
+    -->
+    <!-- 
+      数字方法：
+        toExponential() 把对象的值转换成指数技术
+     -->
+     <script>
+       var num=new Number(10000);
+       var num1=new Number(20000);
+       var num12=new Number(200000);
+       document.write(num.toExponential(1));//1.0e+4
+       document.write(num1.toExponential(1));//2.0e+4
+       document.write(num12.toExponential(2));//2.00e+5
+       document.write(num.toExponential(2));//1.00e+4
+       //toExponential()括号里面的表示科学计数法前面是几位小数，10000则表示4个0，如果保留两位小数，在前面出现的数值可能会被保存，如果小数点显示不了那么多数字，最后的数就会按照0来显示
+     </script>
+     <!-- 
+       toFixed()  将数字强制保留几位小数，四舍五入，括号中传的数值，就是要求保留几位小数
+      -->
+      <script>
+        var mynum=33.45;
+        var younum=33.44;
+        console.log(mynum.toFixed(1),younum.toFixed(1));//33.5 33.4
+      </script>
+      <!-- 
+        toPrecision() 把数字格式化为指定长度
+       -->
+      <script>
+        var num=17.777777;
+        console.log(num.toPrecision(4)); //保留四位有效数字 17.78
+      </script>
+      <!-- 
+        toString()  将数字转化成字符串
+       -->
+       <!-- 
+         valueOf()   返回boolean对象的原始值
+        -->
+      <script>
+        var bool=new Boolean(false);
+        var nobool=123;
+        console.log(bool.valueOf(),"bool对象的原始值是：");//false
+        console.log(nobool.valueOf(),"nobool对象的原始值是：");//123
+      </script>
+</body>
+</html>

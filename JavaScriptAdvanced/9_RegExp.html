@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式</title>
+</head>
+
+<body>
+  <!-- 
+    RegExp:是正则表达式的简写
+    RegExp对象用于规定在文本中检索的内容
+   -->
+  <!-- 
+    什么是正则表达式：
+      正则表达式描述了字符的模式对象。
+      当您检索某个文本时，可以使用一种模式来描述要检索的内容
+      简单的模式可以是一个单独的字符
+      更复杂的模式包括了更多的字符，并可用于解析、格式检查、替换等
+      您可以规定字符串中的检索位置，以及要检索的字符类型等
+    -->
+  <!-- 
+      RegExp 修饰符
+        修饰符用于执行不区分大小写和全文的搜索
+        i 修饰符是用来执行不区分大小写的匹配
+        g 修饰符是用于执行全文的搜索
+     -->
+  <script>
+    var str = "Visit W3CSchool";
+    var partt1 = /w3cschool/i;
+    console.log(partt1.test(str), "不区分大小写匹配字符");//返回true，可以进行接下来的操作
+    var str1 = "Is this your dickeis?"
+    var partt2 = /iss/gi;
+    console.log(partt2.test(str1), "全局不区分大小写匹配");//返回false，表明内容确实不存在
+    var partt3 = /is/gi;
+    console.log(partt3.exec(str1), "全局不区分大小写匹配is");//返回Is，匹配到第一个这个内容并输出
+  </script>
+  <!-- 
+       test(),test方法搜索字符串指定的值，根据计算结果返回真或者假，可以进行电话号码验证等操作
+       exec(),exec方法检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回null
+      -->
+  <!-- 
+        我们可以把这个正则表达式（/the/gi）分成几段：
+          / 是这个正则表达式的头部
+          the 是我们想要匹配的模式
+          / 是这个正则表达式的尾部
+          g 代表着 global(全局)，意味着返回所有的匹配而不仅仅是第一个。
+          i 代表着忽略大小写，意思是当我们寻找匹配的字符串的时候忽略掉字母的大小写。
+       -->
+</body>
+
+</html>

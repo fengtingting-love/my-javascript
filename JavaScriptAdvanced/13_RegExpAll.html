@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则表达式总结</title>
+</head>
+<body>
+  <!-- 
+    普通匹配：  
+      单词       例如cat，匹配cat，catlogo等
+      通配符.    匹配0到多个任意字符，如c.t，可匹配cat、c#t、coot、ct等
+      方括号[]   仅能匹配方括号中所包含的单个字符，如t[aeiou]n,可匹配tan/ten/tin/ton/tun
+      或括号(|)  可匹配任意一个选项，如t(a|oo)n,可匹配tan、toon
+    表示匹配次数的符号：
+      +    1---n次
+      *    0---n次
+      ？   0---1次
+      {n}  恰好n次
+      {n,m} n---m次
+    常见符号：
+      d   数字，等价于[0-9]
+      D   非数字，等价于[^0-9]
+      s   空白符，等价于[\t\n\x0B\f\r]
+      S   非空白符，等价于[^\t\n\x0B\f\r]
+      w   单独字符，等价于[a-zA-Z0-9]
+      W   非单独字符，等价于[^a-zA-Z0-9]
+      ^   开头，如^java,表示匹配为java开头的字符串
+      $   结尾，如java$,匹配以java为结尾的行
+    常见匹配：
+      规范电话号码输入：/^1[3-9]\d{9}$/i   或者  if(!(/^1[3-9]\d{9}$/.test(Aphone)){}如果这个内容不符合我们的，我们就不让他进行下一步
+   -->
+</body>
+</html>
