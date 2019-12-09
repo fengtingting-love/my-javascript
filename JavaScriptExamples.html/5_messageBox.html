@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript消息框</title>
+</head>
+<body>
+  <button class="alertBox" onclick=showAlert()>显示警告框</button>
+  <button class="confirmBox" onclick=showConfirm()>显示确认框</button>
+  <p id="showAnswerConfirm"></p>
+
+  <p>点击按钮查看输入的对话框</p>
+  <button onclick="showHintBox()">显示提示框</button>
+  <p class="showHintContent"></p>
+  <script>
+    function showAlert(){
+      //1.alert警告框
+      alert("你好，我是一个警告框");
+      //2.\n可以在内容中直接换行
+      alert("你好，我是一个\n可以换行的警告框");
+    }
+    //3.确认框
+    function showConfirm(){
+      var x;
+      var r=confirm("请按下其中一个按钮！");
+      if(r===true){
+        x="你按下了\"确定\"按钮！";
+      }else{
+        x="你按下了\"取消\"按钮！";
+      }
+      document.getElementById('showAnswerConfirm').innerHTML=x;
+    }
+    //4.提示框
+    function showHintBox(){
+      var x;
+      var person=prompt("请输入您的名字","冯婷婷");
+      if(person!=null&&person!=''){
+        x="早上好"+person+"! 又是活力满满的一天哦"
+      }else{
+        x="输入内容为空，请重新输入";
+      }
+      document.getElementsByClassName('showHintContent')[0].innerHTML=x;
+    }
+  </script>
+</body>
+</html>

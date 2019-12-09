@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript条件语句</title>
+</head>
+<body>
+  <p>获取当前时间，如果该时间早于上午十点，则会显示“早上好！”</p>
+  <button onclick="jdugeTime()">小熊小熊几点了</button>
+  <script>
+    //一、if...else...条件判断语句
+    function jdugeTime(){
+      var currentTime=new Date();
+      var time=currentTime.getHours();
+      if(time<10){
+        document.getElementsByTagName('p')[0].innerHTML="早上好宝贝！"
+      }else{
+        document.getElementsByTagName('p')[0].innerHTML="你该起床了！"
+      }
+    }
+  </script>
+
+  <p id="p" onclick="getRandom()">点击出现链接</p>
+  <script>
+    //二、随机链接
+    function getRandom(){
+    var res=Math.random();
+    var oP=document.getElementById('p');
+    if(res>0.5){
+      oP.innerHTML="<a href='https://www.baidu.com'>去百度</a>"
+    }else{
+      oP.innerHTML="<a href='https://www.google.com'>去谷歌</a>"
+    }
+  }
+  </script>
+
+  <p>点击获取今天星期几</p>
+  <button onclick=getCurrentDay()>获取</button>
+  <span id="today"></span>
+  <script>
+    //三、Switch条件语句
+    function getCurrentDay(){
+      var currTime=new Date();
+      var resTime=currTime.getDay();
+      
+      switch (resTime) {
+        case 1:x="星期一";
+        break;
+        case 2:x="星期二";
+        break;
+        case 3:x="星期三";
+        break;
+        case 4:x="星期四";
+        break;
+        case 5:x="星期五";
+        break;
+        default:x="双休日"
+      }
+      document.getElementById('today').innerHTML=x;
+    }
+  </script>
+</body>
+</html>

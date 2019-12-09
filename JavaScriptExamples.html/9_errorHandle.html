@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript错误处理</title>
+</head>
+<body>
+  <input type="button" value="查看try...catch消息" onclick="message()">
+  <input type="button" value="查看带有confirm确认框的try...catch消息" onclick="confirmmessgae()">
+  <input type="button" value="查看onerror事件" onclick="errormassgae()">
+  <script>
+    //try...catch错误处理
+    var txt="";
+    function message(){
+      //若语法无误，则执行try中的代码
+      try{
+        addalert("Welcome guest!");
+      }
+      //若语法有误，执行catch中的代码捕获错误
+      catch(err){
+        txt="本页有一个错误。\n\n";
+        txt+="错误描述："+err.message+"\n\n";
+        txt+="点击确定继续。\n\n";
+        alert(txt);
+      }
+    }
+    // function addalert(txt){
+    //   alert(txt);
+    // }
+
+    //带有confirm框的try...catch错误处理
+    function confirmmessgae(){
+      try{
+        adddlert("Welcome guest!");
+      }
+      catch(err){
+        txt="本页有一个错误.\n\n";
+        txt+="单击确定继续跳转\n";
+        txt+="或者单击取消返回\n\n";
+        if(confirm(txt)){
+          document.location.href="http://www.w3cschool.cn/"
+        }
+      }
+    }
+
+    //onerror事件
+      onerror=handleErr;
+      var txt="";
+      //错误处理中msg为错误消息 url为错误路径  l为错误发生的行数
+      function handleErr(msg,url,l){
+        txt="该页面有一个错误\n\n";
+        txt+="错误："+msg+"\n";
+        txt+="URL："+url+"\n";
+        txt+="行："+l+"\n\n";
+        txt+="点击确定继续。\n\n";
+        alert(txt);
+        return true;
+      }
+      function errormassgae(){
+        adddlert("Welcome guest!");
+      }
+  </script>
+</body>
+</html>

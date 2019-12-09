@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript循环</title>
+</head>
+<body>
+  <button onclick="forCircle()">点击显示五条不同i</button>
+  <p id="showRed"></p>
+  <button onclick="showDiffTitle()">点击显示五种不同标题</button>
+  <p id="showTitle"></p>
+  <button onclick="whileCircle()">点击显示不同的while循环</button>
+  <p id="showWhile"></p>
+  <button onclick="showDoWhile()">点击显示不同的do...while循环</button>
+  <p id="showDoWhile"></p>
+  <button onclick="showBreak()">点击演示break语句</button>
+  <p id="showBreak"></p>
+  <button onclick="showContinue()">点击演示continue语句</button>
+  <p id="showContinue"></p>
+  <button onclick="showForIn()">点击显示for...in循环数组显示属性值</button>
+  <p id="showForIn"></p>
+  <script>
+    //for循环输出不同的内容
+    function forCircle(){
+      var x="",i;
+      for(i=0;i<5;i++){
+        x=x+"The number is "+i+"<br/>"
+      }
+      document.getElementById('showRed').innerHTML=x;
+    }
+    //for循环输出不同的HTML内容
+    function showDiffTitle(){
+      var x="",i;
+      for(i=1;i<6;i++){
+        x=x+"<h"+i+">Heading "+i+"</h"+i+">";
+      }
+      document.getElementById('showTitle').innerHTML=x;
+    }
+    //while循环
+    function whileCircle(){
+      var x="",i=0;
+      while(i<5){
+        x=x+"该数字为 "+i+"<br/>";
+        i++;
+      }
+      document.getElementById('showWhile').innerHTML=x;
+    }
+    //Do...while循环
+    function showDoWhile(){
+      var x="",i=0;
+      do{
+        x=x+"该数字为"+i+"<br/>";
+        i++;
+        document.getElementById('showDoWhile').innerHTML=x;
+      }while(i<6);
+    }
+    //break语句
+    function showBreak(){
+      var x="",i=0;
+      for(i=0;i<10;i++){
+        if(i===3){
+          break;
+        }
+        x=x+"该数字为 "+i+"<br/>"
+      }
+      document.getElementById('showBreak').innerHTML=x;
+    }
+    //continue
+    function showContinue(){
+      var x="",i;
+      for(i=0;i<10;i++){
+        if(i===3){
+          continue;
+        }
+        x=x+"该数字为"+i+"<br/>"
+      }
+      document.getElementById('showContinue').innerHTML=x;
+    }
+    /*
+      以上continue和break对比我们可知：
+        break跳出整个循环，后面的都不执行
+        continue跳出当前某步循环，只有当前这步不执行
+    */
+    //用for...in来循环数组
+    function showForIn(){
+      var x;
+      var txt="";
+      var person={name:"冯婷婷",age:19,hobby:"eat"}
+      for(x in person){
+        txt=txt+person[x];
+        console.log(x,"x在其中伴随着循环，循环到每一个属性的键，从而person[x]取到属性的值");
+      }
+      document.getElementById("showForIn").innerHTML=txt;
+    }
+  </script>
+</body>
+</html>

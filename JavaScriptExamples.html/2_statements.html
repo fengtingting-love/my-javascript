@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript语句、注释、代码块</title>
+</head>
+
+<body>
+  <h1 id="h1">我是一个标题</h1>
+  <p class="p">我是一个段落</p>
+  <button onClick=changeAll()>点击</button>
+  <script>
+    //一、语句
+    var oH1 = document.getElementById('h1');
+    var aP = document.getElementsByClassName('p')[0];
+    //通过JavaScript方法改变其中的内容,这样开启页面时，内容已经被替换
+    oH1.innerHTML = "首页";
+    aP.innerHTML = "该公司是一家潜力无穷的公司";
+  </script>
+  <script>
+    //二、代码块
+    function changeAll() {
+      var oH1 = document.getElementById('h1');
+      var aP = document.getElementsByClassName('p')[0];
+      oH1.innerHTML = "详情";
+      aP.innerHTML = "每一次都有不一样的惊喜";
+    }
+  </script>
+  <!-- 
+    //表示单行注释，注释掉的代码不会执行
+    /*
+      这是一个多行注释，
+      同样，注释的代码不会被执行，
+      可以用于注释掉部分内容来进行测试
+    */
+   -->
+</body>
+
+</html>

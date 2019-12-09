@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript函数</title>
+</head>
+<body>
+  <button onclick=showPrompt()>输入内容，执行函数</button>
+  <span id=returnNum></span>
+  <script>
+    function showPrompt(){
+      var num=prompt("请输入内容",2);
+      var resnum=calcuRes(num);
+      document.getElementById('returnNum').innerHTML=resnum;
+    }
+    //带有参数并带有返回值的参数
+    function calcuRes(a){
+      return a*a
+    }
+  </script>
+</body>
+</html>

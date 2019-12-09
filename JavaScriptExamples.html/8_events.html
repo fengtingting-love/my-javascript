@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>onmouseover事件</title>
+</head>
+<body>
+  <img src="https://www.w3cschool.cn/statics/images/course/planets.gif" width="145" height="126"  alt="planets" usemap="#planetmap">
+  <map name="planetmap">
+    <area shape="rect" coords="0,0,82,126" href="sun.htm" target="_blank" alt="Sun" onmouseover="writeText('太阳和气体巨星类似木星是太阳系中最大的物体')">
+    <area shape="circle" coords="90,58,3" href="https://www.w3cschool.cn/statics/images/course/mercur.htm" target="_blank" alt="Mercury" onmouseover="writeText('从地球上很难研究水星，因为它接近太阳')">
+    <area shape="circle" coords="124,58,8" href="https://www.w3cschool.cn/statics/images/course/venus.htm" alt="venus" target="_blank" onmouseover="writeText('直到1960年，金星经常被认为是地球的孪生妹妹，因为金星是最靠近我们的行星，并且两个行星之间有很多相似的特点。')">
+  </map>
+  <p id='desc'>
+    Mouse over the sun and the planets and see the different descriptions.
+  </p>
+  <script>
+    //onmouseover滑动事件
+    function writeText(txt){
+      document.getElementById('desc').innerHTML=txt;
+    }
+  </script>
+</body>
+</html>

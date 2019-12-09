@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>基础JavaScript实例</title>
+</head>
+<body>
+  <script>
+    //实例一：在页面中输出当前时间
+    var currentTime=new Date();
+    document.write("当前的标准时间为："+currentTime+"<br/>");//输出的为标准时间
+    //对时间进行处理,统一成这个格式2019/12/3/18:0:2
+    var year=currentTime.getFullYear();
+    var month=currentTime.getMonth()+1;
+    var day=currentTime.getDate();
+    var hour=currentTime.getHours();
+    var minute=currentTime.getMinutes();
+    var second=currentTime.getSeconds();
+    document.write("处理后的时间为："+year+"/"+month+"/"+day+"/"+hour+":"+minute+":"+second+"<br/>");
+    //对时间进行处理，统一成格式为多少时间之前
+    var OldTime=1575367291746;
+    var passedTime=Math.round(new Date()/1000-OldTime/1000);
+    var units="分钟";
+    var convertUnits=60;
+    var calcTime=Math.floor(passedTime/convertUnits);
+    if(calcTime<=1){
+      document.write("刚刚"+"<br/>")
+    }else if(calcTime>1&&calcTime<60){
+      document.write(calcTime+units+"前"+"<br/>")
+    }else{
+      document.write("一小时前"+"<br/>");
+    }
+
+
+    //实例二：改变页面中的HTML内容
+
+    //首先，要创建一个标签
+    var myDiv=document.createElement('div');
+    //其次，向标签中添加内容
+    myDiv.innerHTML='新建一个div标签';
+    //最后，明确插入的位置
+    document.body.insertBefore(myDiv,document.body.firstElementChild);
+    //如果想要改变其中的内容，可以通过类名和ID名取到，然后innerHTML改变其中的内容
+  </script>
+  <p>我是一个段落</p>
+  <button onclick="changeContent()">点击</button>
+  <script src='./1_basisExamples.js'></script>
+</body>
+</html>
