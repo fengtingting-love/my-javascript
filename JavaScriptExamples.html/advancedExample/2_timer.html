@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>定时器实例</title>
+</head>
+
+<body>
+  <h1 class="showLike" style="color: red;"></h1>
+  <button onclick="showLike()">点击我</button>
+  <br/>
+  <input type="text" id="timePassed">
+  <button onclick="timePassed()">时间流逝</button>
+  <br/>
+  <input type="text" id='interval'>
+  <button onclick="Interval()">计时开始</button>
+  <button onclick="stopInterval()">计时结束</button>
+  <br/>
+  <input type="text" id="clock">
+  <script>
+    //定时器1：在规定时间位置，显示内容-点击我
+    function showLike() {
+      var timer = setTimeout(function () {
+        document.getElementsByClassName('showLike')[0].innerHTML = "突然出现，吓你一跳";
+      }, 1000)
+    }
+    //定时器2-时间流逝：
+    function timePassed() {
+      let timerPass=document.getElementById('timePassed');
+      let timerTwo=setTimeout(()=>{
+        timerPass.value="2秒已经过去了，你在看我"
+      },2000)
+      let timerFour=setTimeout(()=>{
+        timerPass.value="4秒已经过去了，你还在看我"
+      },4000)
+      let timerSix=setTimeout(()=>{
+        timerPass.value="承认吧，六秒了，你就是喜欢我"
+      },6000)
+    }
+    //无穷计时器-计时开始
+    var timers
+    function Interval(){
+      var inter=document.getElementById('interval');
+      var second=inter.value?inter.value:0;
+      timers=setInterval(() => {
+        second++;
+        inter.value=second;
+      }, 1000);
+    }
+    //停止计时-计时结束
+    function stopInterval(){
+      clearInterval(timers);
+    }
+    //利用计时时间制作钟表
+    function Clock(){
+      var d=new Date();
+      var h=d.getHours();
+      var m=d.getMinutes()<10?'0'+d.getMinutes():d.getMinutes();
+      var s=d.getSeconds()<10?'0'+d.getSeconds():d.getSeconds();
+      var final=h+":"+m+":"+s
+      document.getElementById('clock').value=final;
+      var next=setTimeout(function(){Clock()},500)
+    }
+    window.onload=Clock();
+    
+  </script>
+</body>
+
+</html>
