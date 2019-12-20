@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Math对象</title>
+</head>
+<body>
+  <button onclick="useRound()">round显示最接近的整数</button>
+  <button onclick="useRandom()">random显示0~1之间的随机数</button>
+  <button onclick="useMax()">比较选大</button>
+  <button onclick="useMin()">比较选小</button>
+  <script>
+    function useRound(){
+      var num=2.49;
+      console.log(Math.round(num),"距离2.49最近的整数");
+    }
+    function useRandom(){
+      console.log(Math.random(),"随机显示,可以进行*10+10等操作改变随机数的范围");
+    }
+    function useMax(){
+      console.log(Math.max(11.5,11.3),"选择11.5和11.3哪个更大");
+    }
+    function useMin(){
+      console.log(Math.min(11.777,11.778),"选择11.777和11.778哪个更小");
+    }
+  </script>
+</body>
+</html>
