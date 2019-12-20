@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组对象</title>
+</head>
+<body>
+  <button onclick="concatArray()">点击合并数组</button>
+  <button onclick="joinString()">点击转换成字符串</button>
+  <button onclick=deleteLast()>增删改</button>
+  <button onclick="sortArr()">数组排序</button>
+  <script>
+    //合并数组
+    function concatArray(){
+      var car=['volvo','Maserati'];
+      var cat=['kitten','puppet'];
+      var person=[
+        {
+        name:'婷婷',
+        age:14
+      },{
+        name:"亭亭",
+        age:23
+      }
+      ]
+      var two=car.concat(cat);
+      var three=car.concat(cat,person);
+      console.log(two,"合并car和cat之后的效果");
+      console.log(three,"合并car和cat和person后的效果");
+    }
+    //将数组作为字符串输出
+    function joinString(){
+      var myArr=["此时","莺飞草长","春光明媚"];
+      console.log(myArr,myArr.join(),"将数组作为字符串输出")
+    }
+    //用pop删除数组的最后一个元素，push在数组末尾增加元素，reverse将数组翻转排序，shift从头部删除，unshift从尾部删除，slice截取，splice某位置增加元素
+    function deleteLast(){
+      var sports=['basketball','volleyball','tennis'];
+      console.log(sports.pop(),sports,"删除数组的最后一个元素,返回被删除元素，原数组被修改");
+      console.log(sports.push('soccer'),sports,"在数组末尾增加一个元素，返回数组长度，原数组被修改");
+      console.log(sports,"翻转前的数组")
+      var rsports=sports.reverse();
+      console.log(rsports,"翻转后的数组");
+      console.log(sports,sports.shift(),"删除数组的第一个元素,返回被删除元素，原数组发生变化");
+      console.log(sports.unshift('ping pang'),"在数组的最前面插入一个元素,返回数组长度");
+      console.log(sports,sports.slice(1,2),"截取某个位置的元素，返回被截取元素，原数组不发生改变");
+      console.log(sports.splice(1,0,"xinde","yuansu"),sports,"在数组中任意位置新增元素");
+      console.log(sports.toString(),"将数组转换成字符串并返回");
+    }
+    //数组排序
+    function sortArr(){
+      var fruit=['Banana',"Apple","watermelon","Mango"];
+      fruit.sort();
+      console.log(fruit,"排序后的数组");
+      var count=[1,7,3,5,7,9,3,0,6,23];
+      count.sort((a,b)=>{
+        //升序排列
+        // return a-b;
+        //降序排列
+        return b-a;
+      })
+      console.log(count);
+    }
+  </script>
+</body>
+</html>
