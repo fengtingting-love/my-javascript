@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象实例--字符串基础</title>
+</head>
+<body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+  <div id="person"></div>
+  <div id="persons"></div>
+
+  <script>
+    //创建对象:
+    person={name:"冯婷婷",age:21,hobby:"programming"};
+    document.getElementById('person').innerHTML="我有一个朋友，她的名字叫做"+person.name+",她今年"+person.age+"岁了，最喜欢"+person.hobby+"了";
+    //创建对象模板
+    function friends(name,age,hobby){
+      this.name=name;
+      this.age=age;
+      this.hobby=hobby;
+      return "我有一个朋友，她的名字叫做"+this.name+",她今年"+this.age+"岁了，最喜欢"+this.hobby+"了";
+    }
+    myFriend=new friends("婷婷",20,"唱跳Rap篮球");
+    document.getElementById('persons').innerHTML="我有一个朋友，她的名字叫做"+myFriend.name+",她今年"+myFriend.age+"岁了，最喜欢"+myFriend.hobby+"了";
+    //返回字符串长度
+    var txt="hi guys!";
+    console.log(txt.length,"返回字符串的长度，包括空格和符号")
+    //给字符串添加样式
+    var txt="给字符串添加样式";
+    var link="去百度";
+    document.write('<br/>'+txt);
+    document.write("<p>字体变大："+txt.big()+"</p>");
+    document.write("<p>字体缩小："+txt.small()+"</p>");
+    document.write("<p>字体加粗："+txt.bold()+"</p>");
+    document.write("<p>斜体："+txt.italics()+"</p>");
+    document.write("<p>固定定位："+txt.fixed()+"</p>");
+    document.write("<p>加删除线："+txt.strike()+"</p>");
+    document.write("<p>字体颜色："+txt.fontcolor("pink")+"</p>");
+    document.write("<p>字体大小："+txt.fontsize(18)+"</p>");
+    document.write("<p>下标："+txt.sub()+"</p>");
+    document.write("<p>上标："+txt.sup()+"</p>");
+    document.write("<p>链接："+link.link("https://wwww.baidu.com")+"</p>");
+  </script>
+</body>
+</html>
