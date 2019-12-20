@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>date对象的使用</title>
+</head>
+
+<body>
+  <button onclick="showToday()">点击显示今天的日期</button>
+  <div id="today"></div>
+  <hr />
+  <button onclick="getMilliSecond()">getTime获取从1970年1月1日至今的毫秒数</button>
+  <div id="showMilliSecond"></div>
+  <hr />
+  <button onclick="setSpecificDate()">设置具体的日期</button>
+  <div id="setSpecificDate"></div>
+  <hr/>
+  <button onclick="toUTC()">点击我将utc日期转换成字符串</button>
+  <div id="toUtc"></div>
+  <hr/>
+  <button onclick="showDayOfWeek()">点击我显示今天星期几</button>
+  <div id="showDayOfWeek"></div>
+  <hr/>
+  <script>
+    function showToday() {
+      var d = new Date();
+      document.getElementById("today").innerHTML = d;
+    }
+    function getMilliSecond() {
+      var dms = new Date().getTime();
+      document.getElementById('showMilliSecond').innerHTML = dms;
+    }
+    function setSpecificDate(){
+      var ssd=new Date().setFullYear(2020,1,1);
+      document.getElementById('setSpecificDate').innerHTML=ssd;
+    }
+    function toUTC(){
+      var uts=new Date().toUTCString();
+      document.getElementById('toUtc').innerHTML=uts;
+    }
+    function showDayOfWeek(){
+      var dow=new Date().getDay();
+      document.getElementById('showDayOfWeek').innerHTML=dow;
+    }
+  </script>
+</body>
+
+</html>
